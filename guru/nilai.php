@@ -133,7 +133,7 @@ else {
                                     <?php
 		                              $dataQry = mysql_query("SELECT * FROM kelas ORDER BY tahun_ajar");
 		                              while ($dataRow = mysql_fetch_array($dataQry)) {
-                                    echo $dataRow;
+                                    echo "<script>console.log('Debug Objects: " . $dataRow . "' );</script>";
 		                            	  if ($dataRow['kode_kelas'] == $dataKelas) {
 			                         	      $cek = " selected";
 			                              } else { $cek=""; }
