@@ -125,21 +125,23 @@ else {
           	<div class="row mt">
               <div class="col-lg-4">
               <form action='<?php $_SERVER['PHP_SELF']; ?>' target="_self" method="POST">
-                    <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Pilih Kelas</label>
+                <div class="form-group">
+                  <label class="col-sm-2 col-sm-2 control-label">Pilih Kelas</label>
                               <div class="col-sm-10">
                                   <select name="cmbKelas" id="cmbKelas"  class="form-control" required />
                                     <option> ---- Pilih Salah Satu ---- </option>
                                     <?php
 		                              $dataQry = mysql_query("SELECT * FROM kelas ORDER BY tahun_ajar");
 		                              while ($dataRow = mysql_fetch_array($dataQry)) {
-		                            	if ($dataRow['kode_kelas'] == $dataKelas) {
-			                         	$cek = " selected";
-			                             } else { $cek=""; }
-			                             echo "<option value='$dataRow[kode_kelas]' $cek>$dataRow[kelas] | $dataRow[nama_kelas] ( $dataRow[tahun_ajar] )</option>";
-	                                  	} 
+                                    echo $dataRow;
+		                            	  if ($dataRow['kode_kelas'] == $dataKelas) {
+			                         	      $cek = " selected";
+			                              } else { $cek=""; }
+			                                echo "<option value='$dataRow[kode_kelas]' $cek>$dataRow[kelas] | $dataRow[nama_kelas] ( $dataRow[tahun_ajar] )</option>";
+                                    } 
                                     ?>
-                                  </select><br />
+                                  </select>
+                                  <br />
                                   <input name="btnPilih1" type="submit" class="btn btn-sm btn-primary" value="Pilih &raquo" />
                                   <a href="nilai.php" class="btn btn-sm btn-warning"> Refresh </a>
                                   </div>
